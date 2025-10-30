@@ -1,0 +1,2 @@
+# FeelInsight
+Understand your emotions.

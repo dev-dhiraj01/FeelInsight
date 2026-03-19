@@ -43,7 +43,7 @@ import {
 
 const API = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
-fetch(`${API}/api/analyze`);
+
 
 // Enhanced Auth Context with better error handling
 const AuthContext = ({ children }) => {

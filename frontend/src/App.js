@@ -68,7 +68,7 @@ const AuthContext = ({ children }) => {
         "Fetching current user with token:",
         authToken ? "Token present" : "No token",
       );
-      const response = await axios.get(`${API}/auth/me`, {
+      const response = await axios.get(`${API}/api/auth/me`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -526,7 +526,7 @@ const Dashboard = ({ user, logout }) => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get(`${API}/sentiment/history`);
+      const response = await axios.get(`${API}/api/sentiment/history`);
       setHistory(response.data || []);
     } catch (error) {
       handleApiError(error, "Failed to load history");
@@ -555,7 +555,7 @@ const Dashboard = ({ user, logout }) => {
 
     setLoading(true);
     try {
-      const response = await axios.post(`${API}/sentiment/analyze`, {
+      const response = await axios.post(`${API}/api/sentiment/analyze`, {
         text: analysisText.trim(),
         include_emotions: true,
       });

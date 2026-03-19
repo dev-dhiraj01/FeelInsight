@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-
+import { useNavigate } from "react-router-dom";
 // Import shadcn components
 import { Button } from "./components/ui/button";
 import {
@@ -271,6 +271,7 @@ const LandingPage = ({ onGetStarted }) => {
 
 // Enhanced Auth Component with better validation and error handling
 const AuthPage = ({ onLogin }) => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
@@ -394,7 +395,16 @@ const AuthPage = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 p-6 relative">
+      <div className="absolute top-6 right-10">
+        <Button
+          variant="outline"
+          onClick={() => navigate("/")}
+          className="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-6 py-2 rounded-md"
+        >
+          Home
+        </Button>
+      </div>
       <Card className="w-full max-w-md bg-white/90 backdrop-blur-sm shadow-2xl border-0">
         <CardHeader className="text-center">
           <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">

@@ -535,7 +535,7 @@ const Dashboard = ({ user, logout }) => {
 
   const fetchStats = async () => {
     try {
-      const response = await axios.get(`${API}/sentiment/stats`);
+      const response = await axios.get(`${API}/api/sentiment/stats`);
       setStats(response.data);
     } catch (error) {
       handleApiError(error, "Failed to load statistics");

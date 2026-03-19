@@ -42,8 +42,7 @@ import {
 // fetch(`${process.env.REACT_APP_API_URL}/api/analyze`);
 
 // const API = process.env.REACT_APP_API_URL || "http://localhost:8000";
-const API = process.env.REACT_APP_API_URL ;
-
+const API = process.env.REACT_APP_API_URL;
 
 // Enhanced Auth Context with better error handling
 const AuthContext = ({ children }) => {
@@ -67,7 +66,7 @@ const AuthContext = ({ children }) => {
     try {
       console.log(
         "Fetching current user with token:",
-        authToken ? "Token present" : "No token"
+        authToken ? "Token present" : "No token",
       );
       const response = await axios.get(`${API}/auth/me`, {
         headers: {
@@ -79,7 +78,7 @@ const AuthContext = ({ children }) => {
     } catch (error) {
       console.error(
         "Error fetching user:",
-        error.response?.data || error.message
+        error.response?.data || error.message,
       );
       // Only logout if it's an authentication error
       if (error.response?.status === 401 || error.response?.status === 403) {
@@ -332,7 +331,7 @@ const AuthPage = ({ onLogin }) => {
 
       console.log(
         `Making ${isLogin ? "login" : "registration"} request to:`,
-        `${API}${endpoint}`
+        `${API}${endpoint}`,
       );
       console.log("Payload:", { ...payload, password: "[REDACTED]" });
 
@@ -352,7 +351,7 @@ const AuthPage = ({ onLogin }) => {
 
       onLogin(response.data.access_token, response.data.user);
       toast.success(
-        isLogin ? "Welcome back!" : "Account created successfully!"
+        isLogin ? "Welcome back!" : "Account created successfully!",
       );
     } catch (error) {
       console.error("Authentication error:", error);
@@ -361,7 +360,7 @@ const AuthPage = ({ onLogin }) => {
 
       if (error.code === "ECONNREFUSED" || error.code === "ERR_NETWORK") {
         errorMessage =
-        error.code+
+          error.code +
           "Cannot connect to server. Please check if the backend is running.";
       } else if (error.timeout) {
         errorMessage = "Request timed out. Please try again.";
@@ -469,8 +468,8 @@ const AuthPage = ({ onLogin }) => {
               {loading
                 ? "Please wait..."
                 : isLogin
-                ? "Sign In"
-                : "Create Account"}
+                  ? "Sign In"
+                  : "Create Account"}
             </Button>
           </form>
         </CardContent>
@@ -703,7 +702,7 @@ const Dashboard = ({ user, logout }) => {
                     </div>
                     <Badge
                       className={`text-lg px-4 py-2 ${getSentimentColor(
-                        analysisResult.sentiment_score
+                        analysisResult.sentiment_score,
                       )}`}
                     >
                       {analysisResult.sentiment_label?.toUpperCase() ||
@@ -739,7 +738,7 @@ const Dashboard = ({ user, logout }) => {
                                 className="h-2"
                               />
                             </div>
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -800,7 +799,7 @@ const Dashboard = ({ user, logout }) => {
                           <div className="flex items-start justify-between mb-2">
                             <Badge
                               className={getSentimentColor(
-                                item.sentiment_score || 0
+                                item.sentiment_score || 0,
                               )}
                             >
                               {item.sentiment_label || "neutral"}
@@ -896,7 +895,7 @@ const Dashboard = ({ user, logout }) => {
                                   className="h-3"
                                 />
                               </div>
-                            )
+                            ),
                           )}
                         </div>
                       </div>

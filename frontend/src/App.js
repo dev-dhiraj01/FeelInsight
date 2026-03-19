@@ -41,8 +41,8 @@ import {
 
 // fetch(`${process.env.REACT_APP_API_URL}/api/analyze`);
 
-const API = process.env.REACT_APP_API_URL || "http://localhost:8000";
-
+// const API = process.env.REACT_APP_API_URL || "http://localhost:8000";
+const API = process.env.REACT_APP_API_URL ;
 
 
 // Enhanced Auth Context with better error handling
@@ -320,7 +320,8 @@ const AuthPage = ({ onLogin }) => {
     setLoading(true);
 
     try {
-      const endpoint = isLogin ? "/auth/login" : "/auth/register";
+      // const endpoint = isLogin ? "/auth/login" : "/auth/register";
+      const endpoint = isLogin ? "/api/auth/login" : "/api/auth/register";
       const payload = isLogin
         ? { email: formData.email.trim(), password: formData.password }
         : {

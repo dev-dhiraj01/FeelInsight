@@ -34,8 +34,11 @@ import {
 } from "lucide-react";
 
 //   process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
-const BACKEND_URL = "http://localhost:8000";
+// const BACKEND_URL = "http://localhost:8000";
+const BACKEND_URL = "https://feel-insight-mknt.vercel.app/";
 const API = `${BACKEND_URL}/api`;
+
+fetch(`${process.env.REACT_APP_API_URL}/api/analyze`);
 
 // Enhanced Auth Context with better error handling
 const AuthContext = ({ children }) => {

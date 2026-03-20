@@ -308,9 +308,9 @@ def analyze_sentiment_simple(text: str) -> Dict:
         sentiment_score = max(-1.0, min(1.0, sentiment_score * 2))  # Scale to -1 to 1
         
         if sentiment_score > 0.1:
-            sentiment_label = "positive"
+            sentiment_label = "Wholesome"
         elif sentiment_score < -0.1:
-            sentiment_label = "negative" 
+            sentiment_label = "Unwholesome"
         else:
             sentiment_label = "neutral"
     
@@ -326,12 +326,12 @@ def analyze_sentiment_simple(text: str) -> Dict:
         "anticipation": 0.2
     }
     
-    if sentiment_label == "positive":
+    if sentiment_label == "Wholesome":
         base_emotions["joy"] = 0.8 + random.uniform(-0.1, 0.1)
         base_emotions["trust"] = 0.6 + random.uniform(-0.1, 0.1)
         base_emotions["anticipation"] = 0.5 + random.uniform(-0.1, 0.1)
         keywords = ["happiness", "joy", "celebration", "success", "bright"]
-    elif sentiment_label == "negative":
+    elif sentiment_label == "Unwholesome":
         base_emotions["sadness"] = 0.7 + random.uniform(-0.1, 0.1)
         base_emotions["anger"] = 0.4 + random.uniform(-0.1, 0.1)
         base_emotions["fear"] = 0.3 + random.uniform(-0.1, 0.1)

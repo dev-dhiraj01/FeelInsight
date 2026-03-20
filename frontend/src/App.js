@@ -149,13 +149,13 @@ const LandingPage = ({ onGetStarted }) => {
             Understand Your
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
               {" "}
-              Emotions
+              Mental State
             </span>
           </h1>
           <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-            Advanced AI-powered sentiment analysis that transforms your thoughts
-            into meaningful insights. Discover patterns, track emotions, and get
-            personalized visual recommendations.
+            Advanced AI-powered Mental State analysis that transforms your
+            thoughts into meaningful insights. Discover patterns, track
+            emotions, and get personalized visual recommendations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
@@ -167,6 +167,11 @@ const LandingPage = ({ onGetStarted }) => {
               Start Analysis
             </Button>
             <Button
+              onClick={() => {
+                document.getElementById("learn-more").scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
               variant="outline"
               size="lg"
               className="text-lg px-8 py-4 rounded-full border-2 border-blue-200 hover:border-blue-300"
@@ -180,7 +185,10 @@ const LandingPage = ({ onGetStarted }) => {
       {/* Features Section */}
       <section className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">
+          <h2
+            id="learn-more"
+            className="text-4xl font-bold text-slate-800 mb-4"
+          >
             Powerful Features
           </h2>
           <p className="text-xl text-slate-600">
@@ -196,7 +204,7 @@ const LandingPage = ({ onGetStarted }) => {
                 <Brain className="h-8 w-8 text-blue-600" />
               </div>
               <CardTitle className="text-xl text-slate-800">
-                AI Sentiment Analysis
+                AI Mental-State Analysis
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -592,9 +600,9 @@ const Dashboard = ({ user, logout }) => {
 
   const getSentimentEmoji = (label) => {
     switch (label) {
-      case "positive":
+      case "Wholesome":
         return "😊";
-      case "negative":
+      case "Unwholesome":
         return "😔";
       default:
         return "😐";
